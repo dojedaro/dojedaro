@@ -17,7 +17,7 @@ A knowledge graph of 26 Formula 1 seasons with typed tools for a Claude agent, a
 `Knowledge graphs` `Tool use` `RAG` `Evaluation` `Claude API`
 
 ### [Trust Me, It Works](https://github.com/dojedaro/trust-me-it-works): can an AI tell when its own code is wrong?
-Six checking strategies on 12 original "trap" coding tasks, scored by hidden tests the models never see. Self-checking approved wrong code in **4 of 17** cases, a different checker in **1 of 20** (small samples, stated with intervals). The coding model never disputed a failing test, even the wrong ones. 144 runs for $3.82, with 95% confidence intervals.
+Six checking strategies on 12 original "trap" coding tasks, scored by hidden tests the models never see. Self-checking approved wrong code in **4 of 17** cases, a separate, larger checker model in **1 of 20** (small samples, stated with intervals). The coding model never disputed a failing test, even the wrong ones. 144 runs for $3.82, with 95% confidence intervals.
 `Evaluation` `Code generation` `Claude API` `Sandboxing` `pytest`
 
 ### [Aegis](https://github.com/dojedaro/aegis): AI compliance operations platform · [live demo](https://aegis-web-xi.vercel.app/)
@@ -31,7 +31,7 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 - [LangGraph competitive-intelligence agent](https://github.com/dojedaro/langgraph-competitive-intelligence-agent): a Claude agent that maps nearby competitors with the Google Places API and writes a business report.
 
 ### What measuring taught me
-- **A team of agents lost to one agent**, on coverage rather than accuracy ([factcheck-agents](https://github.com/dojedaro/factcheck-agents#does-the-team-beat-one-agent)).
+- **A team of agents lost to one agent** (with the team's follow-up round off), on coverage rather than accuracy ([factcheck-agents](https://github.com/dojedaro/factcheck-agents#does-the-team-beat-one-agent)).
 - **97% accuracy can miss most of what matters:** a bankruptcy model that caught 9 of 44 bankruptcies until rebalanced ([bankruptcy prediction](https://github.com/dojedaro/bankruptcy-prediction-imbalanced-classification)).
 - **A confident agent can be wrong in a way its reasoning hides:** cos(60°) computed in radians ([ReAct agent](https://github.com/dojedaro/pdf-rag-react-agent-langchain)).
 - **Metrics need checking too:** word-overlap scoring ranked a small model above GPT-3.5 ([policy QA](https://github.com/dojedaro/openai-rag-policy-qa-evaluation)), and a perfectly explained model was no better than its baseline ([explainable AI](https://github.com/dojedaro/explainable-ai-shap-lime)).
