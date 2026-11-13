@@ -13,7 +13,7 @@ A planner, parallel researchers with web search, a critic and a writer, orchestr
 `Python` `asyncio` `Claude API` `Multi-agent` `Evaluation`
 
 ### [F1 Graph RAG vs. vector RAG](https://github.com/dojedaro/f1-graphrag): when does a knowledge graph beat vector search? · [explore every run](https://dojedaro.github.io/f1-graphrag/)
-A knowledge graph of 26 Formula 1 seasons with typed tools for a Claude agent, against vector RAG on the same model. On 160 structured questions with answers computed from the data, vector search gets 97% of single-fact questions but **8% of counting questions**; the graph agent gets all 160, including 40 held-out questions written after the tools existed.
+A knowledge graph of 26 Formula 1 seasons with typed tools for a Claude agent, against vector RAG on the same model. On 160 structured questions with answers computed from the data, one-shot vector search scores **55%** (8% on counting); a vector agent that searches in a loop reaches **90%**; the graph agent gets **all 160**, including 40 held-out questions written after the tools existed, at a third of the vector agent's cost.
 `Knowledge graphs` `Tool use` `RAG` `Evaluation` `Claude API`
 
 ### [Trust Me, It Works](https://github.com/dojedaro/trust-me-it-works): can an AI tell when its own code is wrong?
