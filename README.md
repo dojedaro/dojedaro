@@ -16,6 +16,10 @@ A planner, parallel researchers with web search, a critic and a writer, orchestr
 A knowledge graph of 26 Formula 1 seasons with typed tools for a Claude agent, against vector RAG on the same model. 160 questions with answers computed from the data, scored by hop count: vector search gets 97% of single-fact questions but **8% of counting questions**; the graph agent gets all 160, including 40 held-out questions written after the tools existed (6 tool calls each, composing general tools). The whole evaluation cost $0.38.
 `Knowledge graphs` `Tool use` `RAG` `Evaluation` `NetworkX` `Claude API`
 
+### [Trust Me, It Works](https://github.com/dojedaro/trust-me-it-works): can an AI tell when its own code is wrong?
+Six checking strategies (self-check, a second model scoring, a second model writing tests that run, disputes, hidden-test oracle) on 24 original "trap" coding tasks, scored by hidden tests the models never see. Self-checking approved wrong code **1 time in 4**; a different checker cut that to about **1 in 20**. The maker never disputed a single failing test, even the wrong ones. 144 runs for $3.82, with 95% confidence intervals.
+`Evaluation` `Code generation` `Claude API` `Sandboxing` `pytest`
+
 ### [Aegis](https://github.com/dojedaro/aegis): AI compliance operations platform · [live demo](https://aegis-web-xi.vercel.app/)
 Compliance review for GDPR, eIDAS 2.0, AML and the EU AI Act. A Claude agent uses tools that do real work: regulation retrieval (BM25), deterministic PII scanning, and finding recording that rejects citations to articles that don't exist. Explainable rule-based KYC risk scoring, an RBAC-protected audit trail, and 75 tests.
 `TypeScript` `Express` `Claude tool use` `RAG` `JWT/RBAC` `Vitest`
