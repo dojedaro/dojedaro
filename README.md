@@ -21,7 +21,7 @@ Six checking strategies on 12 original "trap" coding tasks, scored by hidden tes
 `Evaluation` `Code generation` `Claude API` `Sandboxing` `pytest`
 
 ### [Aegis](https://github.com/dojedaro/aegis): AI compliance operations platform · [live demo](https://aegis-web-xi.vercel.app/)
-A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU AI Act. Its tools do the parts that must be exact: BM25 retrieval over real regulation articles, deterministic PII scanning, and findings that must cite an article that exists. On an 11-case evaluation it found all 14 planted violations with no false alarms on clean cases. RBAC audit trail, explainable KYC risk scoring, and 92 tests.
+A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU AI Act. Its tools do the parts that must be exact: BM25 retrieval over real regulation articles, deterministic PII scanning, and findings that must cite an article that exists. On an 11-case evaluation it found all 14 planted violations with no false alarms on clean cases. RBAC audit trail, explainable KYC risk scoring, and 93 tests.
 `TypeScript` `Claude tool use` `RAG` `JWT/RBAC` `Vitest` `Playwright`
 
 ### Also built
