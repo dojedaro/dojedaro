@@ -12,6 +12,10 @@ I care about the unglamorous parts that decide whether an AI system can be trust
 A planner, parallel researchers with web search, a critic and a writer, orchestrated in plain `asyncio` on the Claude API with no agent framework. Code, not a model, checks that every cited URL came from a real search and that every citation points to evidence that passed fact-checking. It has budgets with a reserve, failure isolation, nested traces, and an eval with a position-swapped LLM judge. The first eval went 3-2 to the single agent; the README explains why and what to try next.
 `Python` `asyncio` `Claude API` `Multi-agent` `Structured outputs` `Evaluation`
 
+### [F1 Graph RAG vs. vector RAG](https://github.com/dojedaro/f1-graphrag): when does a knowledge graph beat vector search? · [explore every run](https://dojedaro.github.io/f1-graphrag/)
+A knowledge graph of 26 Formula 1 seasons with typed tools for a Claude agent, against vector RAG on the same model. 160 questions with answers computed from the data, scored by hop count: vector search gets 97% of single-fact questions but **8% of counting questions**; the graph agent gets all 160, including 40 held-out questions written after the tools existed (6 tool calls each, composing general tools). The whole evaluation cost $0.38.
+`Knowledge graphs` `Tool use` `RAG` `Evaluation` `NetworkX` `Claude API`
+
 ### [Aegis](https://github.com/dojedaro/aegis): AI compliance operations platform · [live demo](https://aegis-web-xi.vercel.app/)
 Compliance review for GDPR, eIDAS 2.0, AML and the EU AI Act. A Claude agent uses tools that do real work: regulation retrieval (BM25), deterministic PII scanning, and finding recording that rejects citations to articles that don't exist. Explainable rule-based KYC risk scoring, an RBAC-protected audit trail, and 75 tests.
 `TypeScript` `Express` `Claude tool use` `RAG` `JWT/RBAC` `Vitest`
@@ -71,7 +75,7 @@ A Claude agent in a LangGraph loop that finds nearby competitors with the Google
 ## 🧰 Toolbox
 
 **LLMs and agents:** Claude, OpenAI and Gemini APIs · tool use and agent loops · LangGraph · CrewAI · AutoGen · LangChain · LlamaIndex · MCP
-**Retrieval and evaluation:** ChromaDB · FAISS · BM25 · reranking · Precision@K · position-swapped LLM judges · confidence intervals
+**Retrieval and evaluation:** knowledge graphs (NetworkX) · ChromaDB · FAISS · BM25 · reranking · Precision@K · position-swapped LLM judges · confidence intervals
 **ML:** PyTorch · TensorFlow/Keras · Hugging Face Transformers/PEFT/tokenizers · QLoRA · scikit-learn · XGBoost · LightGBM · SHAP/LIME · Whisper
 **Engineering:** Python · TypeScript · FastAPI · Express · SQL · Docker · GitHub Actions · pytest/Vitest
 
