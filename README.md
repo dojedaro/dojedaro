@@ -2,7 +2,7 @@
 
 **AI Engineer** based in South Korea 🇰🇷, building LLM systems that are grounded, evaluated, and safe to put in front of users: RAG, tool-using agents, and the engineering around them (APIs, tests, CI, deployment). My current focus is AI for digital identity and regulatory compliance.
 
-I care about the parts that decide whether an AI system can be trusted: retrieval that cites its sources, agents whose tools do real work, and evaluations that measure what matters. Every number in my READMEs comes from saved outputs, and where a result is weaker than it looks, the README says so.
+I care about the parts that decide whether an AI system can be trusted: retrieval that cites its sources, agents whose tools do real work, and evaluations that measure what matters. Every number in my featured projects comes from saved outputs, and where a result is weaker than it looks, the README says so.
 
 ---
 
@@ -17,7 +17,7 @@ A knowledge graph of 26 Formula 1 seasons with typed tools for a Claude agent, a
 `Knowledge graphs` `Tool use` `RAG` `Evaluation` `Claude API`
 
 ### [Trust Me, It Works](https://github.com/dojedaro/trust-me-it-works): can an AI tell when its own code is wrong?
-Six checking strategies on 12 original "trap" coding tasks, scored by hidden tests the models never see. Self-checking approved wrong code **1 time in 4**; a different checker cut that to about **1 in 20**. The coding model never disputed a failing test, even the wrong ones. 144 runs for $3.82, with 95% confidence intervals.
+Six checking strategies on 12 original "trap" coding tasks, scored by hidden tests the models never see. Self-checking approved wrong code in **4 of 17** cases, a different checker in **1 of 20** (small samples, stated with intervals). The coding model never disputed a failing test, even the wrong ones. 144 runs for $3.82, with 95% confidence intervals.
 `Evaluation` `Code generation` `Claude API` `Sandboxing` `pytest`
 
 ### [Aegis](https://github.com/dojedaro/aegis): AI compliance operations platform · [live demo](https://aegis-web-xi.vercel.app/)
