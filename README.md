@@ -25,7 +25,7 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 `TypeScript` `Claude tool use` `RAG` `JWT/RBAC` `Vitest` `Playwright`
 
 ### Also built
-- [Say What?](https://github.com/dojedaro/say-what): video Q&A in English, Spanish and Korean with timestamped citations; refuses when retrieval finds nothing. FastAPI, ChromaDB, 4 LLM providers, 61 tests.
+- [Say What?](https://github.com/dojedaro/say-what): video Q&A in English, Spanish and Korean with timestamped citations; refuses when retrieval finds nothing. FastAPI, ChromaDB, 4 LLM providers, 62 tests.
 - [MCP-TRADI-WIN](https://github.com/dojedaro/tradiwin-explainable-trading-agents) (Master's thesis): multi-agent crypto forecasting under the Model Context Protocol, where LLMs explain decisions but never make them.
 - [QLoRA fine-tuning](https://github.com/dojedaro/qlora-bert-sentiment-classification): 91.6% test accuracy on 10,000 IMDB reviews while training 0.44% of BERT's weights, under 1 GB of GPU memory.
 - [LangGraph competitive-intelligence agent](https://github.com/dojedaro/langgraph-competitive-intelligence-agent): a Claude agent that maps nearby competitors with the Google Places API and writes a business report.
