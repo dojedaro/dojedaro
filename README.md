@@ -2,6 +2,8 @@
 
 **AI Engineer** based in South Korea 🇰🇷, building LLM systems that are grounded, evaluated, and safe to put in front of users: RAG, tool-using agents, and the engineering around them (APIs, tests, CI, deployment). My current focus is AI for digital identity and regulatory compliance.
 
+🌐 **Portfolio:** [daniel-ojeda.vercel.app](https://daniel-ojeda.vercel.app), my work, results and career journey in one place.
+
 I care about the parts that decide whether an AI system can be trusted: retrieval that cites its sources, agents whose tools do real work, and evaluations that measure what matters. Every number in my featured projects comes from saved outputs, and where a result is weaker than it looks, the README says so.
 
 ---
