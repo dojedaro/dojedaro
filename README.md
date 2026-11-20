@@ -1,6 +1,6 @@
 # Hi, I'm Daniel 👋
 
-**AI Engineer** based in South Korea 🇰🇷, building LLM systems that are grounded, evaluated, and safe to put in front of users: RAG, tool-using agents, and the engineering around them (APIs, tests, CI, deployment). My current focus is AI for digital identity and regulatory compliance.
+**AI Engineer** based in South Korea 🇰🇷, building LLM systems that are grounded, evaluated, and safe to put in front of users: RAG, tool-using agents, fine-tuned models, and the engineering around them (APIs, tests, CI, deployment). My current focus is AI for digital identity and regulatory compliance.
 
 🌐 **Portfolio:** [daniel-ojeda.vercel.app](https://daniel-ojeda.vercel.app), my work, results and career journey in one place.
 
@@ -24,6 +24,10 @@ In production at Hopae, a finance agent combines all three: it runs hourly, a ve
 
 ## 🔭 Featured projects
 
+### [QLoRA maintenance triage](https://github.com/dojedaro/qlora-maintenance-triage): is a fine-tuned LLM worth its GPU on real fault reports?
+Qwen2.5-1.5B fine-tuned with QLoRA to predict which component a metro train needs repaired, from 3,700 real maintenance fault reports with the repair text cut out so the model cannot read the answer. Fine-tuning lifts accuracy from **52%** to **83%** and cuts made-up answers from 12.7% to 0.1%; a TF-IDF baseline scores **85%**, a statistical tie (McNemar p = 0.15), and wins on rare components. Bootstrap intervals, leakage and near-duplicate audits, and an error analysis of why: one symptom often has several valid repairs.
+`QLoRA` `PEFT` `Qwen2.5` `Evaluation` `Industrial data`
+
 ### [factcheck-agents](https://github.com/dojedaro/factcheck-agents): a multi-agent research team, measured against a single agent · [replay real runs](https://dojedaro.github.io/factcheck-agents/)
 A planner, parallel researchers with web search, a critic and a writer, orchestrated in plain `asyncio` on the Claude API with no agent framework. Code, not a model, checks that every cited URL came from a real search and every citation points to evidence that passed the critic. Budgets, failure isolation, traces, and an eval with a position-swapped judge: the single agent won 3-2, and the README explains why.
 `Python` `asyncio` `Claude API` `Multi-agent` `Evaluation`
@@ -43,7 +47,7 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 ### Also built
 - [Say What?](https://github.com/dojedaro/say-what): video Q&A in English, Spanish and Korean with timestamped citations; refuses when retrieval finds nothing. FastAPI, ChromaDB, 4 LLM providers, 62 tests.
 - [MCP-TRADI-WIN](https://github.com/dojedaro/tradiwin-explainable-trading-agents) (Master's thesis): multi-agent crypto forecasting under the Model Context Protocol, where LLMs explain decisions but never make them.
-- [QLoRA fine-tuning](https://github.com/dojedaro/qlora-bert-sentiment-classification): 91.6% test accuracy on 10,000 IMDB reviews while training 0.44% of BERT's weights, under 1 GB of GPU memory.
+- [QLoRA vs. LoRA vs. full fine-tuning](https://github.com/dojedaro/qlora-bert-sentiment-classification): all three measured on one GPU. Training only adapters cuts peak memory from 2.32 GB to 1.23 GB at a 0.7-point accuracy cost; the 4-bit part of QLoRA adds no saving on BERT, only a 2x slower prediction.
 - [LangGraph competitive-intelligence agent](https://github.com/dojedaro/langgraph-competitive-intelligence-agent): a Claude agent that maps nearby competitors with the Google Places API and writes a business report.
 
 ### What measuring taught me
