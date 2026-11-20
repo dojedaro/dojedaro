@@ -8,6 +8,20 @@ I care about the parts that decide whether an AI system can be trusted: retrieva
 
 ---
 
+## 🧱 How I build agents
+
+When an agent fails, the prompt is rarely the problem. I design and measure the layers around the model, and my projects test them with the model held fixed:
+
+| Layer | What I design | What I measured |
+|---|---|---|
+| **Context**: what the model sees on each call | Typed tools instead of raw text chunks; each agent sees only its own tools | Same model, different tools: one-shot retrieval **55%**, a search loop **94%**, knowledge-graph tools **100%** ([F1](https://github.com/dojedaro/f1-graphrag)) |
+| **Loop**: trigger, goal, verification, memory | Verification that runs tests rather than giving opinions; an iteration cap and a stop when nothing changes | A checker with real feedback raised correctness from **58%** to **92–96%**; self-checking approved wrong code in **4 of 17** cases ([Trust Me, It Works](https://github.com/dojedaro/trust-me-it-works)) |
+| **Harness**: the code that runs it reliably | Guarantees enforced in code: sandboxes, budgets, retries, resumable runs, traces | Code rejects any citation that didn't come from a real search ([factcheck-agents](https://github.com/dojedaro/factcheck-agents)); findings must cite a regulation article that exists ([Aegis](https://github.com/dojedaro/aegis)) |
+
+In production at Hopae, a finance agent combines all three: it runs hourly, a verifier on a different Claude model checks every decision, new vendors need human approval, and corrections are saved as rules for future runs.
+
+---
+
 ## 🔭 Featured projects
 
 ### [factcheck-agents](https://github.com/dojedaro/factcheck-agents): a multi-agent research team, measured against a single agent · [replay real runs](https://dojedaro.github.io/factcheck-agents/)
@@ -66,7 +80,7 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 
 ## 🧰 Toolbox
 
-**LLMs and agents:** Claude, OpenAI and Gemini APIs · tool use and agent loops · LangGraph · CrewAI · AutoGen · LangChain · LlamaIndex · MCP
+**LLMs and agents:** Claude, OpenAI and Gemini APIs · context, loop and harness engineering · tool use · LangGraph · CrewAI · AutoGen · LangChain · LlamaIndex · MCP
 **Retrieval and evaluation:** knowledge graphs (NetworkX) · ChromaDB · FAISS · BM25 · reranking · Precision@K · position-swapped LLM judges · confidence intervals
 **ML:** PyTorch · TensorFlow/Keras · Hugging Face Transformers/PEFT/tokenizers · QLoRA · scikit-learn · XGBoost · LightGBM · SHAP/LIME · Whisper
 **Engineering:** Python · TypeScript · FastAPI · Express · SQL · Docker · GitHub Actions · pytest/Vitest
