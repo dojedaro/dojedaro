@@ -2,11 +2,12 @@
 
 **AI engineer in Seoul. I build LLM agents and RAG systems, and I measure whether they work.**
 
-**Now:** AI Engineer / AI Enabler Lead at Hopae, where I built and run three Claude-based production systems: a finance agent whose decisions are checked by a second Claude model, with human approval for new vendors; a company-knowledge RAG assistant over Slack, Notion, HubSpot, Drive and GitHub; and a competitor-monitoring agent. **Before:** 8+ years of applied ML and analytics (Scotiabank, Iris Pricing Solutions). MBA and Master of Management Analytics (Queen's), M.Eng. in AI (Woosong). English, Spanish, French; conversational Korean.
+**Now:** AI Engineer / AI Enabler Lead at Hopae, where I built and run several Claude-based production systems, including a finance agent whose decisions are checked by a second Claude model, with human approval for new vendors; a company-knowledge RAG assistant over Slack, Notion, HubSpot, Drive and GitHub; and a competitor-monitoring agent. **Before:** 8+ years of applied ML and analytics (Scotiabank, Iris Pricing Solutions). MBA and Master of Management Analytics (Queen's), M.Eng. in AI (Woosong). English, Spanish, French; conversational Korean.
 
 [Portfolio](https://daniel-ojeda.vercel.app) · [한국어](https://daniel-ojeda.vercel.app/ko) · [LinkedIn](https://www.linkedin.com/in/danielojedar) · d.ojedaro@gmail.com
 
 **Measured, from saved outputs:**
+- Rolling upgrades and a rollback of an LLM guardrail gateway on Kubernetes: **0 of 2,994** requests failed; with its upstream deliberately killed, the same probe saw 119 of 691 fail ([llm-guardrail-k8s](https://github.com/dojedaro/llm-guardrail-k8s))
 - Same model, three retrieval designs, 160 questions: one-shot vector RAG **55%**, a vector-search agent **94%**, knowledge-graph tools **100%** ([F1](https://github.com/dojedaro/f1-graphrag))
 - A model checking its own code approved wrong code in **4 of 17** cases; a separate, larger checker in **1 of 20** (small samples, intervals overlap) ([Trust Me](https://github.com/dojedaro/trust-me-it-works))
 - A fine-tuned 1.5B LLM scored **83%** and TF-IDF **85%**, reported as a tie ([QLoRA triage](https://github.com/dojedaro/qlora-maintenance-triage))
@@ -31,6 +32,10 @@ In production at Hopae, a finance agent combines all three: it runs hourly, a ve
 ## Featured projects
 
 The projects below are my public work, built with Claude Code as a pair programmer. I set the questions, the experimental design and the acceptance criteria, and every number comes from saved outputs you can open. My day-job code is private.
+
+### [LLM guardrail on Kubernetes](https://github.com/dojedaro/llm-guardrail-k8s): deploying an AI-security gateway into a cluster, end to end
+A gateway in front of an LLM API that redacts PII and screens prompt injection, packaged as a Helm chart and taken through a full deployment on a 3-node kind cluster (Calico) and on k3s on Ubuntu: environment assessment, a simulated air-gapped install from a checksummed bundle, default-deny NetworkPolicies proven by a probe that must connect first and then be blocked, rolling upgrades and rollback with **0 of 2,994** requests failed, and eight drills with real diagnoses, including a Helm 4 field-ownership conflict written up as a customer-style incident report. The guardrails' weak spots are published: on 45 prompts written by an independent reviewer, the first phrase rules blocked 21 of 25 safe prompts and missed 15 of 20 attacks; after narrowing them, 3 of 25 and 6 of 20, measured on the same prompts and stated as such.
+`Kubernetes` `Helm` `k3s` `NetworkPolicy` `Air-gapped install` `AI security`
 
 ### [QLoRA maintenance triage](https://github.com/dojedaro/qlora-maintenance-triage): is a fine-tuned LLM worth its GPU on real fault reports?
 Qwen2.5-1.5B fine-tuned with QLoRA to predict which component a metro train needs repaired, from 3,700 real maintenance fault reports with the repair text cut out so the model cannot read the answer. Fine-tuning lifts accuracy from **52%** to **83%** and cuts made-up answers from 12.7% to 0.1%; a TF-IDF baseline scores **85%**, a statistical tie (McNemar p = 0.15), and wins on rare components. Bootstrap intervals, leakage and near-duplicate audits, and an error analysis of why: one symptom often has several valid repairs.
