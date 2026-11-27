@@ -2,9 +2,13 @@
 
 **AI engineer in Seoul. I build LLM agents and RAG systems, and I measure whether they work.**
 
-**Now:** AI Engineer / AI Enabler Lead at Hopae, where I built and run several Claude-based production systems, including a finance agent whose decisions are checked by a second Claude model, with human approval for new vendors; a company-knowledge RAG assistant over Slack, Notion, HubSpot, Drive and GitHub; and a competitor-monitoring agent. **Before:** 8+ years of applied ML and analytics (Scotiabank, Iris Pricing Solutions). MBA and Master of Management Analytics (Queen's), M.Eng. in AI (Woosong). English, Spanish, French; conversational Korean.
+**Now:** AI Engineer / AI Enabler Lead at Hopae, sole engineer for several Claude-based production systems, including a finance agent whose decisions a second Claude model checks, with human approval for new vendors; a company-knowledge RAG assistant over Slack, Notion, HubSpot, Drive and GitHub; and a competitor monitor.
+
+**Before:** 8+ years of applied ML and analytics (Scotiabank, Iris Pricing Solutions). MBA and Master of Management Analytics (Queen's), M.Eng. in AI (Woosong). English, Spanish, French; conversational Korean.
 
 [Portfolio](https://daniel-ojeda.vercel.app) · [한국어](https://daniel-ojeda.vercel.app/ko) · [LinkedIn](https://www.linkedin.com/in/danielojedar) · d.ojedaro@gmail.com
+
+**Jump to:** [How I build agents](#how-i-build-agents) · [Featured projects](#featured-projects) · [Also built](#also-built) · [Tools and small projects](#tools-and-small-projects) · [More work](#more-work) · [Toolbox](#toolbox)
 
 **Measured, from saved outputs:**
 - Rolling upgrades and a rollback of an LLM guardrail gateway on Kubernetes: **0 of 2,994** requests failed; with its upstream deliberately killed, the same probe saw 119 of 691 fail ([llm-guardrail-k8s](https://github.com/dojedaro/llm-guardrail-k8s))
@@ -34,7 +38,7 @@ In production at Hopae, a finance agent combines all three: it runs hourly, a ve
 The projects below are my public work, built with Claude Code as a pair programmer. I set the questions, the experimental design and the acceptance criteria, and every number comes from saved outputs you can open. My day-job code is private.
 
 ### [LLM guardrail on Kubernetes](https://github.com/dojedaro/llm-guardrail-k8s): deploying an AI-security gateway into a cluster, end to end
-A gateway in front of an LLM API that redacts PII and screens prompt injection, packaged as a Helm chart and taken through a full deployment on a 3-node kind cluster (Calico) and on k3s on Ubuntu: environment assessment, a simulated air-gapped install from a checksummed bundle, default-deny NetworkPolicies proven by a probe that must connect first and then be blocked, rolling upgrades and rollback with **0 of 2,994** requests failed, and eight drills with real diagnoses, including a Helm 4 field-ownership conflict written up as a customer-style incident report. The guardrails' weak spots are published: on 45 prompts written by an independent reviewer, the first phrase rules blocked 21 of 25 safe prompts and missed 15 of 20 attacks; after narrowing them, 3 of 25 and 6 of 20, measured on the same prompts and stated as such.
+A deployment lab for a gateway that sits in front of an LLM API, redacts PII and screens prompt injection. Installed with Helm on a 3-node kind cluster and on k3s, with a simulated air-gapped install, default-deny NetworkPolicies proven by a probe that must connect first and then be blocked, and 3 upgrades plus a rollback with **0 of 2,994** requests failed (119 of 691 fail in the negative control). Eight drills (seven injected faults with written diagnoses and one NetworkPolicy enforcement proof), including a Helm 4 field-ownership conflict written up as a customer-style incident report. Weak spots published: on 45 prompts written by an independent reviewer, the first phrase rules flagged 21 of 25 safe prompts and missed 15 of 20 attacks; after narrowing, 3 of 25 and 6 of 20, measured on the same prompts the rules were then tuned to.
 `Kubernetes` `Helm` `k3s` `NetworkPolicy` `Air-gapped install` `AI security`
 
 ### [QLoRA maintenance triage](https://github.com/dojedaro/qlora-maintenance-triage): is a fine-tuned LLM worth its GPU on real fault reports?
@@ -68,6 +72,10 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 - [CarbonMindful](https://github.com/dojedaro/carbonmindful): carbon footprint of AI training runs across regional scenarios; the paper is accepted at the International Journal of Environment and Waste Management.
 - [LangGraph competitive-intelligence agent](https://github.com/dojedaro/langgraph-competitive-intelligence-agent): a Claude agent that maps nearby competitors with the Google Places API and writes a business report.
 
+### Tools and small projects
+- [Puente](https://github.com/dojedaro/puente-translator) · [demo](https://dojedaro.github.io/puente-translator/): a live interpreter for Korean, English and Spanish that answers at the speaker's formality level (존댓말/반말, usted/tú). In a 60-case eval (one run, grader fixed after the first results; both scores published), casual replies came out right 7 of 7 with the formality instructions and 4 of 7 without. The demo is a scripted sample; live translation runs inside claude.ai.
+- [shiba-cheer](https://github.com/dojedaro/shiba-cheer): a Claude Code plugin for Windows. When a reply takes 30 seconds or longer, a cartoon Shiba Inu pops up with a one-line summary, so you can tell which of several sessions finished.
+
 ### What measuring taught me
 - **A model's own "looks good" is not a quality gate.** Self-review approved wrong code in 4 of 17 cases; a separate, larger model did in 1 of 20 ([trust-me-it-works](https://github.com/dojedaro/trust-me-it-works)).
 - **A team of agents lost to one agent** (with the team's follow-up round off), on coverage rather than accuracy ([factcheck-agents](https://github.com/dojedaro/factcheck-agents#does-the-team-beat-one-agent)).
@@ -75,6 +83,7 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 - **A confident agent can be wrong in a way its reasoning hides:** cos(60°) computed in radians ([ReAct agent](https://github.com/dojedaro/pdf-rag-react-agent-langchain)).
 - **Metrics need checking too:** word-overlap scoring ranked a small model above GPT-3.5 ([policy QA](https://github.com/dojedaro/openai-rag-policy-qa-evaluation)), and a cleanly explained model was barely better than always guessing the most common class ([explainable AI](https://github.com/dojedaro/explainable-ai-shap-lime)).
 
+<a name="more-work"></a>
 <details>
 <summary><b>More work</b>: RAG series, multimodal, audio ML, classical ML</summary>
 
@@ -91,7 +100,6 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 - [CrewAI multi-agent workflows](https://github.com/dojedaro/crewai-claude-multiagent-workflows) · [AutoGen agents on Claude for EDA](https://github.com/dojedaro/autogen-claude-eda-agents)
 - [Multimodal Claude chatbot](https://github.com/dojedaro/multimodal-claude-chatbot) · [live demo](https://multimodal-claude-chatbot.streamlit.app/)
 - [Video → text pipeline (ASR + OCR)](https://github.com/dojedaro/multimodal-media-to-text-pipeline)
-- [Text-to-video with diffusion models](https://github.com/dojedaro/diffusers-text-to-video)
 
 **ML and deep learning**
 - [BPE tokenizer from scratch on WikiText-2](https://github.com/dojedaro/bpe-tokenizer-from-scratch) · [Explainable AI with SHAP and LIME](https://github.com/dojedaro/explainable-ai-shap-lime) · [Bankruptcy prediction on imbalanced data](https://github.com/dojedaro/bankruptcy-prediction-imbalanced-classification)
@@ -106,7 +114,7 @@ A Claude agent that reviews systems against GDPR, eIDAS 2.0, AML/KYC and the EU 
 **LLMs and agents:** Claude, OpenAI and Gemini APIs · context, loop and harness engineering · tool use · LangGraph · CrewAI · AutoGen · LangChain · LlamaIndex · MCP
 **Retrieval and evaluation:** knowledge graphs (NetworkX) · ChromaDB · FAISS · BM25 · reranking · Precision@K · position-swapped LLM judges · confidence intervals
 **ML:** PyTorch · TensorFlow/Keras · Hugging Face Transformers/PEFT/tokenizers · QLoRA · scikit-learn · XGBoost · LightGBM · SHAP/LIME · Whisper
-**Engineering:** Python · TypeScript · FastAPI · Express · SQL · Docker · GitHub Actions · pytest/Vitest
+**Engineering:** Python · TypeScript · FastAPI · Express · SQL · Docker · Kubernetes (kind) · Helm · GitHub Actions · pytest/Vitest
 
 ---
 
